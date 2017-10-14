@@ -40,6 +40,7 @@ E:\Segundo Semestre 2017\Arquitectura\BuscadorWeb\Browser\Web-Navigator\obj\Debu
 E:\Segundo Semestre 2017\Arquitectura\BuscadorWeb\Browser\Web-Navigator\obj\Debug\Web_Navigator.Statistics.resources
 J:\Code as Profesional\Browser\Web-Navigator\obj\Debug\Web_Navigator.Statistics.resources
 J:\Code as Profesional\Browser\Web-Navigator\obj\Debug\Web_Navigator.MainApp.resources
+<<<<<<< HEAD
 E:\Segundo Semestre 2017\Arquitectura\BuscadorWeb\ArqSearch\Web-Navigator\bin\Debug\Web-Navigator.exe.config
 E:\Segundo Semestre 2017\Arquitectura\BuscadorWeb\ArqSearch\Web-Navigator\bin\Debug\Web-Navigator.exe
 E:\Segundo Semestre 2017\Arquitectura\BuscadorWeb\ArqSearch\Web-Navigator\bin\Debug\Web-Navigator.pdb
@@ -51,3 +52,5 @@ E:\Segundo Semestre 2017\Arquitectura\BuscadorWeb\ArqSearch\Web-Navigator\obj\De
 E:\Segundo Semestre 2017\Arquitectura\BuscadorWeb\ArqSearch\Web-Navigator\obj\Debug\Web-Navigator.csproj.CoreCompileInputs.cache
 E:\Segundo Semestre 2017\Arquitectura\BuscadorWeb\ArqSearch\Web-Navigator\obj\Debug\Web-Navigator.exe
 E:\Segundo Semestre 2017\Arquitectura\BuscadorWeb\ArqSearch\Web-Navigator\obj\Debug\Web-Navigator.pdb
+=======
+>>>>>>> master

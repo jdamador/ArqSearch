@@ -23,10 +23,17 @@ namespace MethodSearch
         string[] listURL; // Main list url
         string[] words; // Main list to search word
         PerformanceCounter cpuCounter;
+<<<<<<< HEAD
         PerformanceCounter ramCounter;
         public ArrayList resultsFoundParallel = new ArrayList(); //Save Information of Parallel
         public ArrayList resultsFoundSequential = new ArrayList();// Save Information of Secuencial
 
+=======
+        PerformanceCounter ramCounter;
+        public ArrayList resultsFoundParallel = new ArrayList(); //Save Information of Parallel
+        public ArrayList resultsFoundSequential = new ArrayList();// Save Information of Secuencial
+
+>>>>>>> master
         int contProcessor; //Num of Procesor
         string line; 
 
@@ -128,11 +135,17 @@ namespace MethodSearch
             if (incidences > 0)
             {
                 long duration = timeSearch.ElapsedMilliseconds; //Time duration 
+<<<<<<< HEAD
                 timeSearch.Restart();
                 Console.WriteLine(duration + "- Duracion");
                 Information info = new Information(url, textToSearch, this.synopsis, incidences, duration, getCurrentCpuUsage());
                 Console.WriteLine("Agregar " + info.url);
                 resultsFoundParallel.Add(info); //Add in the list
+=======
+                Information info = new Information(url, textToSearch, this.synopsis, incidences, duration);
+                resultsFoundParallel.Add(info); //Add in the list
+                
+>>>>>>> master
             }
             return;
         }
@@ -200,11 +213,17 @@ namespace MethodSearch
             if (incidences > 0)
             {
                 long duration = timeSearch.ElapsedMilliseconds; //Time duration 
+<<<<<<< HEAD
                 timeSearch.Restart();
                 Console.WriteLine(duration + "- Duracion");
                 Information info = new Information(url, textToSearch, this.synopsis, incidences, duration, getCurrentCpuUsage());
                 Console.WriteLine("Agregar " + info.url);
                 resultsFoundSequential.Add(info); //Add in the list
+=======
+                Information info = new Information(url, textToSearch, this.synopsis, incidences, duration);
+                resultsFoundParallel.Add(info); //Add in the list
+                resultsFoundSequential.Add(info); //Add in the list
+>>>>>>> master
             }
             return;
         }
@@ -282,6 +301,7 @@ namespace MethodSearch
             }
         }
 
+<<<<<<< HEAD
         public double getCurrentCpuUsage()
         {
             return cpuCounter.NextValue();
@@ -290,11 +310,22 @@ namespace MethodSearch
         public double getAvailableRAM()
         {
             return ramCounter.NextValue();
+=======
+        public string getCurrentCpuUsage()
+        {
+            return cpuCounter.NextValue() + "%";
+        }
+
+        public string getAvailableRAM()
+        {
+            return ramCounter.NextValue() + "MB";
+>>>>>>> master
         }
 
 
         public string[] deleteTag(string[] vector)
         {
+<<<<<<< HEAD
             Parallel.For(0, (vector.Length-1), index =>
              {
                 if (vector[index].Contains("<"))
@@ -305,6 +336,14 @@ namespace MethodSearch
                       vector[index] = vector[index].Substring(0, i);
                      }
                        
+=======
+            Parallel.For(0, vector.Length, index =>
+             {
+                if (vector[index].Contains("<"))
+                {
+                    int i = vector[index].IndexOf("<");
+                    vector[index] = vector[index].Substring(0, i);
+>>>>>>> master
                 }
 
              });

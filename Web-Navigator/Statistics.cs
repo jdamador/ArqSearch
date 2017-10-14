@@ -44,11 +44,15 @@ namespace Web_Navigator
         {
 
         }
+<<<<<<< HEAD
         /// <summary>
         /// Show Charts in the first position
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
+=======
+
+>>>>>>> master
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             showChats();
@@ -69,6 +73,10 @@ namespace Web_Navigator
             if (countURL != 0)
             {
                 this.countURL--;
+<<<<<<< HEAD
+=======
+
+>>>>>>> master
             }
             else
             {
@@ -76,6 +84,7 @@ namespace Web_Navigator
             }
             showChats();
         }
+<<<<<<< HEAD
         /// <summary>
         /// Shows Chats 
         /// </summary>
@@ -124,12 +133,32 @@ namespace Web_Navigator
                 if (infoParallel != null)
                 {
 
+=======
+        private void showChats()
+        {
+            if (resultsFoundSequential.Count > 0 && resultsFoundParallel.Count > 0)
+            {
+                Information infoSequential = (Information)resultsFoundSequential[countURL];
+                Information infoParallel = null;
+                Parallel.For(0, resultsFoundParallel.Count, i =>
+                {
+                    Information aux = (Information)resultsFoundParallel[i];
+                    if (aux.url.Equals(infoSequential.url))
+                    {
+                        infoParallel = aux;
+                    }
+                });
+                if (infoParallel != null)
+                {
+                   
+>>>>>>> master
 
                     //Chart Parallel
                     chartInsidenceParallel.Titles.Clear(); //Clear title
                     chartInsidenceParallel.Titles.Add(infoParallel.url); //Title url
                     chartInsidenceParallel.Series.Clear(); //Clear Series
                     chartInsidenceParallel.Series.Add(infoParallel.word); //Word Search
+<<<<<<< HEAD
                     chartInsidenceParallel.Series[infoParallel.word].Points.AddXY("NumberIncidences", infoParallel.numIncedences);// Num Incedinces of word
 
                     //Chart Time Parallel
@@ -150,11 +179,15 @@ namespace Web_Navigator
                     chartTimeParallel.Series.Clear(); //Clear Series                                                         
                     chartInsidenceSequential.Series.Add(infoSequential.word); //Word Search
                     chartInsidenceSequential.Series[infoSequential.word].Points.AddXY("NumberIncidences", infoSequential.numIncedences);// Num Incedinces of word
+=======
+                    chartInsidenceParallel.Series[infoParallel.url].Points.AddXY("NumberIncidences", infoParallel.numIncedences);// Num Incedinces of word
+>>>>>>> master
 
                     //Chart TimeSequential
                     chartTimeSequential.Titles.Clear(); //Clear title
                     chartTimeSequential.Titles.Add("Time Sequential");
                     chartTimeSequential.Series.Clear(); //Clear Series
+<<<<<<< HEAD
                     chartTimeSequential.Series.Add("Time CPU Process");
                     chartTimeSequential.Series.Add("Time Sequential Process");
                     chartTimeSequential.Series["Time Sequential Process"].Points.AddXY("Time MilliSeg", infoSequential.timeDuration);
@@ -174,14 +207,54 @@ namespace Web_Navigator
             if ((resultsFoundParallel.Count - 1) > max)
                 max = (resultsFoundParallel.Count - 1);
             if (countURL != max)
+=======
+                    chartTimeSequential.Series.Add("Time Sequential Process");
+                    chartTimeSequential.Series["Time Sequential Process"].Points.AddXY("Time MilliSeg", infoSequential.timeDuration);
+
+                    
+
+
+                }
+                // Chart Sequential
+                chartInsidenceSequential.Titles.Clear(); //Clear title
+                chartInsidenceSequential.Titles.Add(infoSequential.url); //Title url
+                chartInsidenceSequential.Series.Clear(); //Clear Series
+                chartInsidenceSequential.Series.Add(infoSequential.word); //Word Search
+                chartInsidenceSequential.Series[infoSequential.url].Points.AddXY("NumberIncidences", infoSequential.numIncedences);// Num Incedinces of word
+                                                                                                                                   //Chart TimeParallel
+                chartTimeParallel.Titles.Clear(); //Clear title
+                chartTimeParallel.Titles.Add("Time Parallel");
+                chartTimeParallel.Series.Clear(); //Clear Series
+                chartTimeParallel.Series.Add("Time Parallel Process");
+                chartTimeParallel.Series["Time Parallel Process"].Points.AddXY("Time MilliSeg", infoParallel.timeDuration);
+
+            }
+        }
+
+        private void btnSig_Click(object sender, EventArgs e)
+        {
+            if (countURL != (resultsFoundSequential.Count - 1))
+>>>>>>> master
             {
                 this.countURL++;
             }
             else
             {
+<<<<<<< HEAD
                 this.countURL = max;
             }
             showChats();
         }
+=======
+                this.countURL = resultsFoundSequential.Count - 1;
+            }
+            showChats();
+        }
+
+        private void Statistics_Load(object sender, EventArgs e)
+        {
+
+        }
+>>>>>>> master
     }
 }
