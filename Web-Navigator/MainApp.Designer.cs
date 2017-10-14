@@ -29,15 +29,15 @@
         private void InitializeComponent()
         {
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.btnSearch = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Link = new System.Windows.Forms.DataGridViewLinkColumn();
-            this.Abtract = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Inicidence = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Abtract = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Link = new System.Windows.Forms.DataGridViewLinkColumn();
             this.backgroundContainer = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
+            this.btnSearch = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -54,18 +54,6 @@
             this.textBox1.TabIndex = 1;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
-            // btnSearch
-            // 
-            this.btnSearch.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnSearch.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnSearch.Location = new System.Drawing.Point(779, 63);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(99, 35);
-            this.btnSearch.TabIndex = 0;
-            this.btnSearch.Text = "Search Sequential";
-            this.btnSearch.UseVisualStyleBackColor = false;
-            this.btnSearch.Click += new System.EventHandler(this.button1_Click);
-            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::Web_Navigator.Properties.Resources.THEO___KATE__1_;
@@ -75,18 +63,6 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button1.Location = new System.Drawing.Point(688, 63);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(73, 35);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "Search Parallel";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click_2);
             // 
             // pictureBox2
             // 
@@ -109,12 +85,26 @@
             this.Inicidence,
             this.Abtract,
             this.Link});
-            this.dataGridView1.Location = new System.Drawing.Point(0, 103);
+            this.dataGridView1.Location = new System.Drawing.Point(12, 104);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(1261, 578);
             this.dataGridView1.TabIndex = 5;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // Inicidence
+            // 
+            this.Inicidence.HeaderText = "Inicidence";
+            this.Inicidence.Name = "Inicidence";
+            this.Inicidence.ReadOnly = true;
+            this.Inicidence.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // Abtract
+            // 
+            this.Abtract.HeaderText = "Abtract";
+            this.Abtract.Name = "Abtract";
+            this.Abtract.ReadOnly = true;
+            this.Abtract.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
             // Link
             // 
@@ -125,20 +115,6 @@
             this.Link.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.Link.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.Link.Width = 52;
-            // 
-            // Abtract
-            // 
-            this.Abtract.HeaderText = "Abtract";
-            this.Abtract.Name = "Abtract";
-            this.Abtract.ReadOnly = true;
-            this.Abtract.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // Inicidence
-            // 
-            this.Inicidence.HeaderText = "Inicidence";
-            this.Inicidence.Name = "Inicidence";
-            this.Inicidence.ReadOnly = true;
-            this.Inicidence.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
             // backgroundContainer
             // 
@@ -153,6 +129,32 @@
             this.backgroundContainer.Size = new System.Drawing.Size(1264, 681);
             this.backgroundContainer.TabIndex = 5;
             this.backgroundContainer.Paint += new System.Windows.Forms.PaintEventHandler(this.backgroundContainer_Paint);
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.button1.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button1.Location = new System.Drawing.Point(688, 63);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(195, 35);
+            this.button1.TabIndex = 4;
+            this.button1.Text = "Search Parallel";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click_2);
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnSearch.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSearch.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnSearch.Location = new System.Drawing.Point(889, 62);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(275, 35);
+            this.btnSearch.TabIndex = 0;
+            this.btnSearch.Text = "Search Sequential";
+            this.btnSearch.UseVisualStyleBackColor = false;
+            this.btnSearch.Click += new System.EventHandler(this.button1_Click);
             // 
             // MainApp
             // 
@@ -175,15 +177,15 @@
         #endregion
 
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Inicidence;
         private System.Windows.Forms.DataGridViewTextBoxColumn Abtract;
         private System.Windows.Forms.DataGridViewLinkColumn Link;
         private System.Windows.Forms.Panel backgroundContainer;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnSearch;
     }
 }
 

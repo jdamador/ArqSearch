@@ -54,3 +54,14 @@ E:\Segundo Semestre 2017\Arquitectura\BuscadorWeb\ArqSearch\Web-Navigator\obj\De
 E:\Segundo Semestre 2017\Arquitectura\BuscadorWeb\ArqSearch\Web-Navigator\obj\Debug\Web-Navigator.pdb
 =======
 >>>>>>> master
+J:\Code as Profesional\ArqSearch\Web-Navigator\obj\Debug\Web-Navigator.csprojResolveAssemblyReference.cache
+J:\Code as Profesional\ArqSearch\Web-Navigator\obj\Debug\Web_Navigator.MainApp.resources
+J:\Code as Profesional\ArqSearch\Web-Navigator\obj\Debug\Web_Navigator.Properties.Resources.resources
+J:\Code as Profesional\ArqSearch\Web-Navigator\obj\Debug\Web_Navigator.Statistics.resources
+J:\Code as Profesional\ArqSearch\Web-Navigator\obj\Debug\Web-Navigator.csproj.GenerateResource.Cache
+J:\Code as Profesional\ArqSearch\Web-Navigator\obj\Debug\Web-Navigator.csproj.CoreCompileInputs.cache
+J:\Code as Profesional\ArqSearch\Web-Navigator\obj\Debug\Web-Navigator.exe
+J:\Code as Profesional\ArqSearch\Web-Navigator\obj\Debug\Web-Navigator.pdb
+J:\Code as Profesional\ArqSearch\Web-Navigator\bin\Debug\Web-Navigator.exe.config
+J:\Code as Profesional\ArqSearch\Web-Navigator\bin\Debug\Web-Navigator.exe
+J:\Code as Profesional\ArqSearch\Web-Navigator\bin\Debug\Web-Navigator.pdb

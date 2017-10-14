@@ -9,33 +9,40 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MethodSearch;
 using System.Collections;
-
+using MethodSearch;
 namespace Web_Navigator
 {
     public partial class Statistics : Form
     {
         Form beforeWindow;
         int countURL = 0;
-        public ArrayList resultsFoundParallel = new ArrayList(); //Save Information of Parallel
-        public ArrayList resultsFoundSequential = new ArrayList();// Save Information of Secuencial
+         ArrayList resultsFoundParallel; //Save Information of Parallel
+         ArrayList resultsFoundSequential;// Save Information of Secuencial
+        Methods meto;
         public Statistics()
         {
             InitializeComponent();
-
+            this.WindowState = FormWindowState.Maximized; /*Open this windows in full screen*/
             panelMenu.BackColor = Color.FromArgb(27, 32, 41);
-            panelView.BackColor = Color.FromArgb(36, 45, 60);
+            panelViewSearch.BackColor = Color.FromArgb(36, 45, 60);
+            panelViewClock.BackColor = Color.FromArgb(36, 45, 60);
+            panelViewSearch.Visible = false;
+            panelViewClock.Visible = false;
         }
 
         //Methods to Jump Windows
-        public void jumpWindows(Form beforeWin, ArrayList parallel, ArrayList sequential)
+        public void JumpWindows(Form beforeWin,Object aux)
         {
+            meto = (Methods)aux;
             beforeWin.Hide();
             this.beforeWindow = beforeWin;
-            if (parallel != null && sequential != null)
+            if (meto.resultsFoundParallel != null)
             {
-                this.resultsFoundParallel = parallel;
-                this.resultsFoundSequential = sequential;
+
+                resultsFoundParallel = meto.resultsFoundParallel;
             }
+            if (meto.resultsFoundSequential != null)
+                this.resultsFoundSequential = meto.resultsFoundSequential;
 
 
         }
@@ -44,25 +51,35 @@ namespace Web_Navigator
         {
 
         }
-<<<<<<< HEAD
         /// <summary>
         /// Show Charts in the first position
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-=======
-
->>>>>>> master
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            showChats();
+            panelViewClock.Visible = false;
+            panelViewSearch.Visible = true;
+            showCharts();
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-
+            panelViewSearch.Visible = false;
+            panelViewClock.Visible = true;
+            showChartProcess();
+            
         }
+        private void  showChartProcess() {
+            chartTimeProcess.Series.Clear();
 
+            chartTimeProcess.Series.Add("Total Time Parallel");
+            chartTimeProcess.Series.Add("Total Time Sequential");
+            chartTimeProcess.Series["Total Time Parallel"].Points.AddXY("Parallel",meto.timeParallel);
+            chartTimeProcess.Series["Total Time Sequential"].Points.AddXY("Sequential", meto.timeSequential);
+            chartTimeProcess.Series["Total Time Parallel"].Points[0].AxisLabel = "Parallel";
+            chartTimeProcess.Series["Total Time Sequential"].Points[0].AxisLabel = "Sequential";
+        }
         private void panelView_Paint(object sender, PaintEventArgs e)
         {
 
@@ -70,25 +87,26 @@ namespace Web_Navigator
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (countURL != 0)
+            if (panelViewSearch.Enabled == true)
             {
-                this.countURL--;
-<<<<<<< HEAD
-=======
 
->>>>>>> master
+
+                if (countURL != 0)
+                {
+                    this.countURL--;
+                }
+                else
+                {
+                    this.countURL = 0;
+                }
+
+                showCharts();
             }
-            else
-            {
-                this.countURL = 0;
-            }
-            showChats();
         }
-<<<<<<< HEAD
         /// <summary>
         /// Shows Chats 
         /// </summary>
-        private void showChats()
+        private void showCharts()
         {
             Console.WriteLine("Esta apunto de iniciar");
             Console.WriteLine("Contador del Secuencial: " + resultsFoundSequential.Count);
@@ -132,33 +150,14 @@ namespace Web_Navigator
 
                 if (infoParallel != null)
                 {
-
-=======
-        private void showChats()
-        {
-            if (resultsFoundSequential.Count > 0 && resultsFoundParallel.Count > 0)
-            {
-                Information infoSequential = (Information)resultsFoundSequential[countURL];
-                Information infoParallel = null;
-                Parallel.For(0, resultsFoundParallel.Count, i =>
-                {
-                    Information aux = (Information)resultsFoundParallel[i];
-                    if (aux.url.Equals(infoSequential.url))
-                    {
-                        infoParallel = aux;
-                    }
-                });
-                if (infoParallel != null)
-                {
-                   
->>>>>>> master
-
+                    
                     //Chart Parallel
                     chartInsidenceParallel.Titles.Clear(); //Clear title
                     chartInsidenceParallel.Titles.Add(infoParallel.url); //Title url
                     chartInsidenceParallel.Series.Clear(); //Clear Series
                     chartInsidenceParallel.Series.Add(infoParallel.word); //Word Search
-<<<<<<< HEAD
+                
+                    chartInsidenceParallel.ChartAreas[0].AxisY.Interval = 5;
                     chartInsidenceParallel.Series[infoParallel.word].Points.AddXY("NumberIncidences", infoParallel.numIncedences);// Num Incedinces of word
 
                     //Chart Time Parallel
@@ -167,6 +166,7 @@ namespace Web_Navigator
                     chartTimeParallel.Series.Clear(); //Clear Series
                     chartTimeParallel.Series.Add("Time Parallel Process");
                     chartTimeParallel.Series.Add("Time CPU Process");
+                    chartTimeParallel.ChartAreas[0].AxisY.Interval = 10000;
                     chartTimeParallel.Series["Time Parallel Process"].Points.AddXY("Time MilliSeg", infoParallel.timeDuration);
                     chartTimeParallel.Series["Time CPU Process"].Points.AddXY("Time CPU", infoParallel.timeCPU);
 
@@ -178,18 +178,16 @@ namespace Web_Navigator
                     chartInsidenceSequential.Titles.Add(infoSequential.url); //Title url
                     chartTimeParallel.Series.Clear(); //Clear Series                                                         
                     chartInsidenceSequential.Series.Add(infoSequential.word); //Word Search
+                    chartInsidenceSequential.ChartAreas[0].AxisY.Interval = 5;
                     chartInsidenceSequential.Series[infoSequential.word].Points.AddXY("NumberIncidences", infoSequential.numIncedences);// Num Incedinces of word
-=======
-                    chartInsidenceParallel.Series[infoParallel.url].Points.AddXY("NumberIncidences", infoParallel.numIncedences);// Num Incedinces of word
->>>>>>> master
 
                     //Chart TimeSequential
                     chartTimeSequential.Titles.Clear(); //Clear title
                     chartTimeSequential.Titles.Add("Time Sequential");
                     chartTimeSequential.Series.Clear(); //Clear Series
-<<<<<<< HEAD
                     chartTimeSequential.Series.Add("Time CPU Process");
                     chartTimeSequential.Series.Add("Time Sequential Process");
+                    chartTimeSequential.ChartAreas[0].AxisY.Interval = 10000;
                     chartTimeSequential.Series["Time Sequential Process"].Points.AddXY("Time MilliSeg", infoSequential.timeDuration);
                     chartTimeSequential.Series["Time CPU Process"].Points.AddXY("Time CPU", infoSequential.timeCPU);
 
@@ -203,58 +201,31 @@ namespace Web_Navigator
         /// <param name="e"></param>
         private void btnSig_Click(object sender, EventArgs e)
         {
-            int max = (resultsFoundSequential.Count - 1);
-            if ((resultsFoundParallel.Count - 1) > max)
-                max = (resultsFoundParallel.Count - 1);
-            if (countURL != max)
-=======
-                    chartTimeSequential.Series.Add("Time Sequential Process");
-                    chartTimeSequential.Series["Time Sequential Process"].Points.AddXY("Time MilliSeg", infoSequential.timeDuration);
+            if (panelViewSearch.Enabled == true)
+            {
+                int max = 0;
+                if ((resultsFoundParallel.Count - 1) >= (resultsFoundSequential.Count - 1))
+                    max = (resultsFoundParallel.Count - 1);
+                else
+                    max = (resultsFoundSequential.Count - 1);
 
-                    
-
-
+                if (countURL != max)
+                {
+                    this.countURL++;
                 }
-                // Chart Sequential
-                chartInsidenceSequential.Titles.Clear(); //Clear title
-                chartInsidenceSequential.Titles.Add(infoSequential.url); //Title url
-                chartInsidenceSequential.Series.Clear(); //Clear Series
-                chartInsidenceSequential.Series.Add(infoSequential.word); //Word Search
-                chartInsidenceSequential.Series[infoSequential.url].Points.AddXY("NumberIncidences", infoSequential.numIncedences);// Num Incedinces of word
-                                                                                                                                   //Chart TimeParallel
-                chartTimeParallel.Titles.Clear(); //Clear title
-                chartTimeParallel.Titles.Add("Time Parallel");
-                chartTimeParallel.Series.Clear(); //Clear Series
-                chartTimeParallel.Series.Add("Time Parallel Process");
-                chartTimeParallel.Series["Time Parallel Process"].Points.AddXY("Time MilliSeg", infoParallel.timeDuration);
+                else
+                {
+                    this.countURL = max;
+                }
 
+                showCharts();
             }
         }
 
-        private void btnSig_Click(object sender, EventArgs e)
+        private void btnBack_Click(object sender, EventArgs e)
         {
-            if (countURL != (resultsFoundSequential.Count - 1))
->>>>>>> master
-            {
-                this.countURL++;
-            }
-            else
-            {
-<<<<<<< HEAD
-                this.countURL = max;
-            }
-            showChats();
+            this.Hide();
+            beforeWindow.Show();
         }
-=======
-                this.countURL = resultsFoundSequential.Count - 1;
-            }
-            showChats();
-        }
-
-        private void Statistics_Load(object sender, EventArgs e)
-        {
-
-        }
->>>>>>> master
     }
 }
