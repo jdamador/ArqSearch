@@ -450,7 +450,7 @@
             this.chartTimeParallel.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
             this.chartTimeParallel.Legends.Add(legend1);
-            this.chartTimeParallel.Location = new System.Drawing.Point(565, 352);
+            this.chartTimeParallel.Location = new System.Drawing.Point(539, 352);
             this.chartTimeParallel.Name = "chartTimeParallel";
             this.chartTimeParallel.Size = new System.Drawing.Size(488, 293);
             this.chartTimeParallel.TabIndex = 4;
@@ -462,7 +462,7 @@
             this.chartInsidenceParallel.ChartAreas.Add(chartArea2);
             legend2.Name = "Legend1";
             this.chartInsidenceParallel.Legends.Add(legend2);
-            this.chartInsidenceParallel.Location = new System.Drawing.Point(565, 53);
+            this.chartInsidenceParallel.Location = new System.Drawing.Point(539, 53);
             this.chartInsidenceParallel.Name = "chartInsidenceParallel";
             this.chartInsidenceParallel.Size = new System.Drawing.Size(488, 293);
             this.chartInsidenceParallel.TabIndex = 3;
